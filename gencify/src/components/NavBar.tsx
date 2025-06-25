@@ -12,14 +12,13 @@ const NavBar = () => {
       <SearchInput />
       <div className="flex gap-8  text-xl font-Poppins">
         <button className="cursor-pointer">
-          {" "}
           <MdFavoriteBorder />
         </button>
         <button className="cursor-pointer">
           <LuShoppingCart />
         </button>
         <button className="cursor-pointer">
-          <FaRegUserCircle />{" "}
+          <FaRegUserCircle />
         </button>
       </div>
     </header>
