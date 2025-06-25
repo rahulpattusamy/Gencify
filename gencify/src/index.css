@@ -13,11 +13,11 @@ body {
 @layer components {
   .card {
     @apply bg-white text-gray-700
-          w-58 min-h-[21rem]
+          w-58 min-h-[20rem]
           shadow-2xl rounded-xl overflow-hidden;
   }
   .text{
-     @apply text-gray-800
+     @apply text-gray-800 text-sm
   }
   .btn {
     @apply flex items-center gap-2 bg-red-500 text-white text-sm  px-1.5 py-1 rounded hover:bg-red-600 cursor-pointer;
