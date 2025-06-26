@@ -20,9 +20,12 @@ body {
      @apply text-gray-800 text-sm
   }
   .btn {
-    @apply flex items-center gap-2 bg-red-500 text-white text-sm  px-1.5 py-1 rounded hover:bg-red-600 cursor-pointer;
+    @apply flex items-center gap-2 bg-red-500 text-white text-sm  px-1.5 py-1 rounded hover:bg-red-600 transition-all transform-3d cursor-pointer;
   }
   .btn2{
-   @apply  bg-red-500 text-white text-xl text-sm  px-1 py-1 rounded-sm hover:bg-red-600 cursor-pointer;
+   @apply  bg-red-500 text-white  px-1 py-1 rounded-sm hover:bg-red-600 transition-all cursor-pointer;
+  }
+  .btn3{
+    @apply px-2 bg-gray-600  text-white  rounded hover:bg-gray-800  transition-all cursor-pointer;
   }
 }
