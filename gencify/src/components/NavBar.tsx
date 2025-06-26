@@ -5,12 +5,12 @@ import SearchInput from "./SearchInput";
 
 const NavBar = () => {
   return (
-    <header className="flex items-center justify-between bg-red-400 p-3 text-white">
+  <header className="flex shrink-0 items-center justify-between bg-red-400 p-3 text-white">
       <div>
         <h1 className="font-Poppins text-xl">Gencify</h1>
       </div>
       <SearchInput />
-      <div className="flex gap-8  text-xl font-Poppins">
+      <div className="flex shrink-0 gap-8  text-xl font-Poppins">
         <button className="cursor-pointer">
           <MdFavoriteBorder />
         </button>

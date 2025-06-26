@@ -1,16 +1,29 @@
-import Category from "./components/category"
-import NavBar from "./components/NavBar"
-import ProductCard from "./components/ProductCard"
-ProductCard
+import { useState } from "react";
+import NavBar from "./components/NavBar";
+import ProductCard from "./components/ProductCard";
+import type { Categories } from "./hooks/useCategory";
+import Category from "./components/Category";
 
-const App = () => {
-  return (
-    <div>
-      <NavBar/>
-      <Category/>
-     <ProductCard/>
-    </div>
-  )
+
+export interface ProductQuery {
+  category: Categories | null;
 }
 
-export default App
+const App = () => {
+  const [productQuery, setProductQuery] = useState<ProductQuery>(
+    {} as ProductQuery
+  );
+  return (
+    <div>
+      <NavBar />
+      <Category
+        onSelectCategory={(category) =>
+          setProductQuery({ ...productQuery, category })
+        }
+      />
+      <ProductCard productQuery={productQuery} />
+    </div>
+  );
+};
+
+export default App;
