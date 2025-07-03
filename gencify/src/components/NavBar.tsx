@@ -2,6 +2,7 @@ import { MdFavoriteBorder } from "react-icons/md";
 import { LuShoppingCart } from "react-icons/lu";
 import { FaRegUserCircle } from "react-icons/fa";
 import SearchInput from "./SearchInput";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
@@ -15,7 +16,10 @@ const NavBar = () => {
           <MdFavoriteBorder />
         </button>
         <button className="cursor-pointer">
-          <LuShoppingCart />
+          <Link to="/cart">
+           <LuShoppingCart />
+          </Link>
+         
         </button>
         <button className="cursor-pointer">
           <FaRegUserCircle />
