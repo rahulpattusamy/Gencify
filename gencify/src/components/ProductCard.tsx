@@ -2,16 +2,14 @@ import { LuShoppingCart } from "react-icons/lu";
 import { MdFavoriteBorder } from "react-icons/md";
 import useProducts from "../hooks/useProducts";
 import useProductstore from "../store";
-
-
-
-
+import { FindproductInCart } from "../utils/FindProductIncart";
 const ProductCard = () => {
   const productQuery = useProductstore((s) => s.productQuery.categoryid);
-  const setProductTocart = useProductstore((s)=>s.setCart)
-  const { data, error } = useProducts(productQuery)
+  const { data, error } = useProducts(productQuery);
+  const setProductTocart = useProductstore((s) => s.setCart);
+  const cart = useProductstore(s=>s.productQuery.cart)
   
-  console.log(setProductTocart)
+  
   if (error)
     return (
       <p className="text-center text-2xl mt-3.5 font-Poppins">
@@ -21,7 +19,9 @@ const ProductCard = () => {
 
   return (
     <div className="grid sm:grid-cols-4 gap-y-10 gap-x-5 mt-10 ml-5 ">
-      {data?.map((product) => (
+      {data?.map((product) =>{ 
+        const isProductIncart = FindproductInCart(cart, product.id)
+        return(
         <div className="card" key={product.id}>
           <img
             className="w-full h-45 object-cover"
@@ -32,12 +32,16 @@ const ProductCard = () => {
             <p className="text ">{product.title}</p>
             <p className=" text">&#36;{product.price}</p>
             <div className=" pt-2 flex align-middle gap-18 ">
-              <button type="button"
+              <button
+                type="button"
                 className="btn"
-                onClick={()=>setProductTocart(product)}
+                onClick={() => {
+                  !isProductIncart 
+                  && setProductTocart(product);
+                }}
               >
                 <LuShoppingCart />
-                Add to cart
+               {isProductIncart? "Added" : "Add to Cart"}
               </button>
               <button className="btn2">
                 <MdFavoriteBorder />
@@ -45,7 +49,7 @@ const ProductCard = () => {
             </div>
           </div>
         </div>
-      ))}
+      )})}
     </div>
   );
 };

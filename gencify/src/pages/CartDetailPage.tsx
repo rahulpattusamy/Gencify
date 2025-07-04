@@ -6,7 +6,7 @@ const CartDetailPage = () => {
 const cart = useProductstore(s=>s.productQuery.cart)
   return (
     <div>
-      {cart?.map(Product=><div>{Product.title} </div>)}
+      {cart?.map(Product=><div key={Product.id}>{Product.title} </div>)}
     </div>
   )
 }
