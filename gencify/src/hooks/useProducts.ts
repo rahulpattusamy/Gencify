@@ -1,6 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
 import apiclient from "../assets/service/api-client"
-import type { ProductQuery } from "../store";
 apiclient;
 
 export interface Products {
@@ -10,13 +9,13 @@ export interface Products {
   images: string;
 }
 
-const useProducts = (id?: ProductQuery) =>
+const useProducts = (id?:number) =>
   useQuery({
     queryKey: ["products",id],
     queryFn: () =>
       apiclient
         .get<Products[]>("/products", {
-          params: { categoryId: id?.categoryid },
+          params: { categoryId: id},
         })
         .then((res) => res.data),
     staleTime: 192 * 60 * 60 * 1000,

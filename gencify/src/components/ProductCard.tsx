@@ -4,15 +4,14 @@ import useProducts from "../hooks/useProducts";
 import useProductstore from "../store";
 
 
+
+
 const ProductCard = () => {
-  const productQuery = useProductstore((s) => s.productQuery);
+  const productQuery = useProductstore((s) => s.productQuery.categoryid);
+  const setProductTocart = useProductstore((s)=>s.setCart)
   const { data, error } = useProducts(productQuery)
-  const setSelectedCartProduct = useProductstore((s) => s.setCart);
-
   
-
-  
-
+  console.log(setProductTocart)
   if (error)
     return (
       <p className="text-center text-2xl mt-3.5 font-Poppins">
@@ -34,9 +33,8 @@ const ProductCard = () => {
             <p className=" text">&#36;{product.price}</p>
             <div className=" pt-2 flex align-middle gap-18 ">
               <button type="button"
-                onClick={() => {
-                setSelectedCartProduct(product);}}
                 className="btn"
+                onClick={()=>setProductTocart(product)}
               >
                 <LuShoppingCart />
                 Add to cart
