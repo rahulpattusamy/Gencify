@@ -3,6 +3,8 @@ import { MdFavoriteBorder } from "react-icons/md";
 import useProducts from "../hooks/useProducts";
 import useProductstore from "../store";
 import { FindproductInCart } from "../utils/FindProductIncart";
+import { FaCheckCircle } from "react-icons/fa";
+
 const ProductCard = () => {
   const productQuery = useProductstore((s) => s.productQuery.categoryid);
   const { data, error } = useProducts(productQuery);
@@ -31,7 +33,7 @@ const ProductCard = () => {
           <div className="pt-5 pl-2 flex flex-col gap-1.5">
             <p className="text ">{product.title}</p>
             <p className=" text">&#36;{product.price}</p>
-            <div className=" pt-2 flex align-middle gap-18 ">
+            <div className=" p-2  flex justify-between shrink-0 align-middle  ">
               <button
                 type="button"
                 className="btn"
@@ -40,7 +42,7 @@ const ProductCard = () => {
                   && setProductTocart(product);
                 }}
               >
-                <LuShoppingCart />
+                {isProductIncart?<FaCheckCircle/>:<LuShoppingCart /> }
                {isProductIncart? "Added" : "Add to Cart"}
               </button>
               <button className="btn2">
