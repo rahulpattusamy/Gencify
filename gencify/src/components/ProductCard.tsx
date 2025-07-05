@@ -46,7 +46,7 @@ const ProductCard = () => {
                {isProductIncart? "Added" : "Add to Cart"}
               </button>
               <button className="btn2">
-                <MdFavoriteBorder />
+                <MdFavoriteBorder/>
               </button>
             </div>
           </div>

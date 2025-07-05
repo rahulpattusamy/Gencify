@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import apiclient from "../assets/service/api-client";
+import apiclient from "../service/api-client";
 
 export interface Categories {
   id: number;
@@ -9,6 +9,7 @@ export interface Categories {
 export const useCategory = () =>
   useQuery({
     queryKey: ["categories"],
-    queryFn: () => apiclient.get<Categories[]>("/categories").then((res) => res.data),
-    staleTime:192*60*60*1000
+    queryFn: () =>
+      apiclient.get<Categories[]>("/categories").then((res) => res.data),
+    staleTime: 192 * 60 * 60 * 1000,
   });

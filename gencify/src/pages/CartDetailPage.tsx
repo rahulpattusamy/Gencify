@@ -1,8 +1,13 @@
+import Emptycart from "../components/Emptycart";
 import useProductstore from "../store";
 
 const CartDetailPage = () => {
   const cart = useProductstore((s) => s.productQuery.cart);
   const removeFromCart = useProductstore(s=>s.removeFromcart)
+ 
+  if(cart?.length === 0)
+  return <Emptycart/>
+
   return (
     <div>
       {cart?.map((item) => (
