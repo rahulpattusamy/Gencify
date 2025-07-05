@@ -10,7 +10,10 @@ const NavBar = () => {
   return (
     <header className="flex shrink-0 items-center justify-between bg-red-400 p-3 text-white">
       <div>
-        <h1 className="font-Poppins text-xl">Gencify</h1>
+        <Link to="/">
+         <h1 className="font-Poppins text-xl cursor-pointer">Gencify</h1>
+        </Link>
+       
       </div>
       <SearchInput />
       <div className="flex shrink-0 gap-8  text-3xl font-Poppins">

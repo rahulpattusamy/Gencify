@@ -28,14 +28,22 @@ body {
   .btn3{
     @apply px-2 bg-gray-800 text-sm flex items-center gap-1 text-white  rounded hover:bg-gray-900  cursor-pointer transition transform active:scale-110;
   }
-  
+
   .cartcard{
     @apply  bg-white text-gray-700
           w-100 h-full object-cover
           shadow-2xl rounded-xl overflow-hidden;
   }
+  .priceCard{
+    @apply bg-white text-gray-700
+          w-70 h-65 object-cover
+          shadow-2xl rounded-xl overflow-hidden;
+  }
   .btn4{
-    @apply bg-gray-800 text-white px-1.5 rounded-4xl hover:bg-gray-900  cursor-pointer transition transform active:scale-110;
+    @apply bg-gray-800 text-white text-center px-1.5 rounded-4xl hover:bg-gray-900  cursor-pointer transition transform active:scale-110;
+  }
+  .pricedetails{
+  @apply flex justify-between p-2 text-sm text-gray-400
   }
   
 }

@@ -28,7 +28,7 @@ const useProductstore = create<ProductQuerystore>((set) => ({
     set((state) => {
       const updatedCart = state.productQuery.cart?.filter((c) => c.id !== id);
       return { productQuery: { ...state.productQuery, cart: updatedCart } };
-    }),
+    })
 }));
 
 export default useProductstore;
