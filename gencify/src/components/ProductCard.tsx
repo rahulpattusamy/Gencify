@@ -36,7 +36,7 @@ const ProductCard = () => {
             <div className=" p-2  flex justify-between shrink-0 align-middle  ">
               <button
                 type="button"
-                className="btn"
+                className="btn "
                 onClick={() => {
                   !isProductIncart 
                   && setProductTocart(product);

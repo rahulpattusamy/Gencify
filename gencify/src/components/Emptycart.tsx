@@ -9,7 +9,7 @@ const Emptycart = () => {
           There is nothing in your cart. Let's add some items
         </p>
         <Link to="/">
-        <button className="bg-gray-700 p-2 rounded-sm text-white text-sm mt-3 hover:bg-gray-800 cursor-pointer">
+        <button className="bg-gray-700 p-2 rounded-sm text-white text-sm mt-3 hover:bg-gray-800 transition transform active:scale-110 cursor-pointer">
           Shop now
         </button>
         </Link>
