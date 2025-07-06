@@ -4,14 +4,16 @@ import useProducts from "../hooks/useProducts";
 import useProductstore from "../store";
 import { FindproductInCart } from "../utils/FindProductIncart";
 import { FaCheckCircle } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const ProductCard = () => {
   const productQuery = useProductstore((s) => s.productQuery.categoryid);
   const { data, error } = useProducts(productQuery);
   const setProductTocart = useProductstore((s) => s.setCart);
   const cart = useProductstore(s=>s.productQuery.cart)
-  
-  
+  const navigate = useNavigate();
+
+
   if (error)
     return (
       <p className="text-center text-2xl mt-3.5 font-Poppins">
@@ -40,10 +42,11 @@ const ProductCard = () => {
                 onClick={() => {
                   !isProductIncart 
                   && setProductTocart(product);
+                  isProductIncart && navigate("/cart")
                 }}
               >
-                {isProductIncart?<FaCheckCircle/>:<LuShoppingCart /> }
-               {isProductIncart? "Added" : "Add to Cart"}
+               {isProductIncart? "Added to cart"  : "Add to Cart"}
+               {isProductIncart?<FaCheckCircle/>:<LuShoppingCart /> }
               </button>
               <button className="btn2">
                 <MdFavoriteBorder/>
