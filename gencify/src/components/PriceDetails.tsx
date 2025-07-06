@@ -1,5 +1,6 @@
 import type { Products } from "../hooks/useProducts";
 import useProductstore from "../store";
+import Emptycart from "./Emptycart";
 
 const PriceDetails = () => {
   const cart = useProductstore((s) => s.productQuery.cart);
@@ -7,9 +8,10 @@ const PriceDetails = () => {
     cart?.reduce((acc, result) => acc + parseInt(result.price), 0);
   const total = totalPrice(cart);
   const platformfee = 7;
+  if(cart?.length === 0) return<Emptycart/>
   return (
     <div className="priceCard ">
-      <p className=" font-bold text-xl text-black border-b-2 text-center">
+      <p className=" text-lg  text-black border-b-1 text-center">
         Price Details
       </p>
       <p className="pricedetails">
@@ -22,10 +24,10 @@ const PriceDetails = () => {
       <p className="pricedetails">
         Delivery Fee: <span>0</span>
       </p>
-      <p className="pricedetails border-b-2 border-black">
+      <p className="pricedetails border-b-1 border-black">
         Platform Fee:<span>&#36;{platformfee}</span>
       </p>
-      <p className="pricedetails font-bold text-black">
+      <p className="pricedetails  text-black">
         Total Amount:<span>&#36;{(total ?? 0) + (platformfee ?? 0)}</span>
       </p>
 

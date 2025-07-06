@@ -4,20 +4,20 @@
 
 @theme {
   --font-Poppins: "Poppins", sans-serif;
+
 }
 
 body {
   font-family: var(--font-Poppins);
+  font-weight: 200;
+  font-style: normal;
 }
 
 @layer components {
   .card {
-    @apply bg-white text-gray-700
+    @apply bg-white text-black text-sm font-light
           w-58 min-h-[20rem]
           shadow-2xl rounded-xl overflow-hidden;
-  }
-  .text{
-     @apply text-gray-800 text-sm
   }
   .btn {
     @apply flex items-center gap-2 bg-red-500 text-white text-sm  px-1.5 py-1 rounded hover:bg-red-600  transform-3d cursor-pointer transition transform active:scale-110;
@@ -30,20 +30,23 @@ body {
   }
 
   .cartcard{
-    @apply  bg-white text-gray-700
-          w-100 h-full object-cover
-          shadow-2xl rounded-xl overflow-hidden;
+    @apply  bg-white text-black
+          w-100  object-cover font-light
+        shadow-2xl rounded-sm overflow-hidden;
   }
   .priceCard{
-    @apply bg-white text-gray-700
-          w-70 h-65 object-cover
-          shadow-2xl rounded-xl overflow-hidden;
+    @apply bg-white font-light text-black
+          w-70 h-65 object-cover 
+          shadow-2xl rounded-xs overflow-hidden;
   }
   .btn4{
     @apply bg-gray-800 text-white text-center px-1.5 rounded-4xl hover:bg-gray-900  cursor-pointer transition transform active:scale-110;
   }
   .pricedetails{
-  @apply flex justify-between p-2 text-sm text-gray-400
+  @apply flex justify-between p-2 text-sm text-black
+  }
+  .text{
+    @apply font-light text-black text-sm
   }
   
 }

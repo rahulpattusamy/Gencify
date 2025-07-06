@@ -11,12 +11,12 @@ const NavBar = () => {
     <header className="flex shrink-0 items-center justify-between bg-red-400 p-3 text-white">
       <div>
         <Link to="/">
-         <h1 className="font-Poppins text-xl cursor-pointer">Gencify</h1>
+         <h1 className="font-Poppins text-2xl cursor-pointer">Gencify</h1>
         </Link>
        
       </div>
       <SearchInput />
-      <div className="flex shrink-0 gap-8  text-3xl font-Poppins">
+      <div className="flex shrink-0 gap-8  text-3xl">
         <button className="cursor-pointer">
           <MdFavoriteBorder />
         </button>
