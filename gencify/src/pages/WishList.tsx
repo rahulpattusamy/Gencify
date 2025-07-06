@@ -3,6 +3,8 @@ import { LuShoppingCart } from "react-icons/lu";
 
 const WishList = () => {
   const wishlist = useProductstore((s) => s.productQuery.wishlist);
+  const removeProduct = useProductstore(s=>s.removeFromWishlist)
+  const addTocart = useProductstore(s=>s.setCart)
   return (
     <div className="grid sm:grid-cols-4 gap-y-10 gap-x-5 p-10">
       {wishlist?.map((item) => (
@@ -12,7 +14,9 @@ const WishList = () => {
             <p className="text ">{item.title}</p>
             <p className=" text">&#36;{item.price}</p>
             <div className="flex justify-between">
-              <button type="button" className="btn3">
+              <button onClick={()=>{removeProduct(item.id)
+                addTocart(item)
+              }} type="button" className="btn3">
                 Remove
               </button>
               <button className="btn3 mr-2">

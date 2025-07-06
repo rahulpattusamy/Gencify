@@ -13,6 +13,7 @@ interface ProductQuerystore {
   setCart: (cart: Products) => void;
   removeFromcart: (id: number) => void;
   setWishlist: (wishlist: Products) => void;
+  removeFromWishlist:(id:number)=>void
 }
 
 const useProductstore = create<ProductQuerystore>((set) => ({
@@ -38,6 +39,11 @@ const useProductstore = create<ProductQuerystore>((set) => ({
         wishlist: [...(state.productQuery.wishlist || []), wishlist],
       },
     })),
+    removeFromWishlist:(id) =>
+    set((state) => {
+      const updatedwishlist = state.productQuery.wishlist?.filter((w) => w.id !== id);
+      return { productQuery: { ...state.productQuery, wishlist: updatedwishlist } };
+    }),
 }));
 
 export default useProductstore;

@@ -28,7 +28,7 @@ body {
     @apply flex items-center gap-2 bg-red-400 border text-white text-xs  p-2 rounded hover:cursor-pointer transform-3d cursor-pointer transition transform active:scale-110;
   }
   .btn2{
-   @apply bg-red-400 text-white  p-2 rounded-2xl hover:cursor-pointer transition transform active:scale-110;
+   @apply bg-red-400 text-white  p-1 rounded-xl hover:cursor-pointer transition transform active:scale-110;
   }
   .btn3{
     @apply px-2 bg-gray-800 text-sm flex items-center text-center gap-1 text-white  rounded hover:bg-gray-900  cursor-pointer transition transform active:scale-110;
