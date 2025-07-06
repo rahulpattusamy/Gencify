@@ -15,15 +15,20 @@ body {
 
 @layer components {
   .card {
-    @apply bg-white text-black text-sm font-light
-          w-58 min-h-[20rem]
+    @apply text-black text-sm font-light
+          w-45 min-h-[19rem]
           shadow-2xl rounded-xl overflow-hidden;
   }
+  .card2{
+    @apply  bg-white text-black text-sm font-light
+          w-45 min-h-[16rem]
+          shadow-2xl rounded-sm overflow-hidden;
+  }
   .btn {
-    @apply flex items-center gap-2 bg-red-500 text-white text-sm  px-1.5 py-1 rounded hover:bg-red-600  transform-3d cursor-pointer transition transform active:scale-110;
+    @apply flex items-center gap-2 bg-red-400 border text-white text-xs  px-2 rounded hover:cursor-pointer transform-3d cursor-pointer transition transform active:scale-110;
   }
   .btn2{
-   @apply  bg-red-500 text-white  p-2 rounded-2xl hover:bg-red-600  cursor-pointer transition transform active:scale-110;
+   @apply bg-red-400 text-white  p-2 rounded-2xl hover:cursor-pointer transition transform active:scale-110;
   }
   .btn3{
     @apply px-2 bg-gray-800 text-sm flex items-center text-center gap-1 text-white  rounded hover:bg-gray-900  cursor-pointer transition transform active:scale-110;
@@ -46,7 +51,7 @@ body {
   @apply flex justify-between p-2 text-sm text-black
   }
   .text{
-    @apply font-light text-black text-sm
+    @apply  text-black text-xs
   }
   
 }

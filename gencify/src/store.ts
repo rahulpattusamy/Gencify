@@ -5,12 +5,14 @@ export interface ProductQuery {
   categoryid?: number;
   product?: Products;
   cart?: Products[];
+  wishlist?: Products[];
 }
 interface ProductQuerystore {
   productQuery: ProductQuery;
   setCategoryId: (categoryid: number) => void;
   setCart: (cart: Products) => void;
   removeFromcart: (id: number) => void;
+  setWishlist: (wishlist: Products) => void;
 }
 
 const useProductstore = create<ProductQuerystore>((set) => ({
@@ -28,7 +30,14 @@ const useProductstore = create<ProductQuerystore>((set) => ({
     set((state) => {
       const updatedCart = state.productQuery.cart?.filter((c) => c.id !== id);
       return { productQuery: { ...state.productQuery, cart: updatedCart } };
-    })
+    }),
+  setWishlist: (wishlist) =>
+    set((state) => ({
+      productQuery: {
+        ...state.productQuery,
+        wishlist: [...(state.productQuery.wishlist || []), wishlist],
+      },
+    })),
 }));
 
 export default useProductstore;

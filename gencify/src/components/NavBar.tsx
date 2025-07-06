@@ -7,6 +7,7 @@ import useProductstore from "../store";
 
 const NavBar = () => {
   const cart = useProductstore((s) => s.productQuery.cart);
+  const wishlist = useProductstore(s=>s.productQuery.wishlist)
   return (
     <header className="flex shrink-0 items-center justify-between bg-red-400 p-3 text-white">
       <div>
@@ -17,11 +18,14 @@ const NavBar = () => {
       </div>
       <SearchInput />
       <div className="flex shrink-0 gap-8  text-3xl">
-        <button className="cursor-pointer">
+        <button className="cursor-pointer relative">
           <Link to="/wishlist">
           <MdFavoriteBorder />
           </Link>
         </button>
+         <span className="text-sm bg-gray-700 w-5 text-center rounded-2xl ml-5 -mt-1  absolute">
+          {wishlist ? wishlist.length : "0"}
+        </span>
         <button className="cursor-pointer relative">
           <Link to="/cart">
             <LuShoppingCart />
