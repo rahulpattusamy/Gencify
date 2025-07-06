@@ -32,9 +32,15 @@ const ProductCard = () => {
               src={product.images}
               alt=""
             />
-            <div className="pt-4 pl-1 h-30 flex flex-col gap-1.5">
+            <div className="pt-4 pl-1.5  h-30 flex flex-col gap-1.5">
               <p className="text">{product.title}</p>
-              <p className=" text">&#36;{product.price}</p>
+              <p className=" text text-sm font-bold flex justify-between items-center">&#36;{product.price} <button
+                    onClick={() => setProductToWishlist(product)}
+                    className="btn2 mr-2"
+                  >
+                    <MdFavoriteBorder />
+                  </button></p>
+                  <p className="border-b mr-1 fiixed"></p>
               <div className="flex justify-between">
                 <button
                   type="button"
@@ -47,12 +53,6 @@ const ProductCard = () => {
                   {isProductIncart ? "Added" : "Add to Cart"}
                   {isProductIncart ? <FaCheckCircle /> : <LuShoppingCart />}
                 </button>
-                  <button
-                    onClick={() => setProductToWishlist(product)}
-                    className="btn2 mr-2.5"
-                  >
-                    <MdFavoriteBorder />
-                  </button>
               </div>
             </div>
           </div>

@@ -15,9 +15,9 @@ body {
 
 @layer components {
   .card {
-    @apply text-black text-sm font-light
-          w-45 min-h-[19rem]
-          shadow-2xl rounded-xl overflow-hidden;
+    @apply text-black text-sm shadow-xl rounded-sm font-light
+          w-45 min-h-[20rem]
+         overflow-hidden;
   }
   .card2{
     @apply  bg-white text-black text-sm font-light
@@ -25,7 +25,7 @@ body {
           shadow-2xl rounded-sm overflow-hidden;
   }
   .btn {
-    @apply flex items-center gap-2 bg-red-400 border text-white text-xs  px-2 rounded hover:cursor-pointer transform-3d cursor-pointer transition transform active:scale-110;
+    @apply flex items-center gap-2 bg-red-400 border text-white text-xs  p-2 rounded hover:cursor-pointer transform-3d cursor-pointer transition transform active:scale-110;
   }
   .btn2{
    @apply bg-red-400 text-white  p-2 rounded-2xl hover:cursor-pointer transition transform active:scale-110;
