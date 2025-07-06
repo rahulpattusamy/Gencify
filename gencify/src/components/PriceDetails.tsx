@@ -1,14 +1,13 @@
 import type { Products } from "../hooks/useProducts";
 import useProductstore from "../store";
-import Emptycart from "./Emptycart";
 
 const PriceDetails = () => {
   const cart = useProductstore((s) => s.productQuery.cart);
   const totalPrice = (cart?: Products[]) =>
     cart?.reduce((acc, result) => acc + parseInt(result.price), 0);
   const total = totalPrice(cart);
-  const platformfee = 7;
-  if(cart?.length === 0) return<Emptycart/>
+  const platformfee = Math.floor (Math.random()*20)+1
+  if(cart)
   return (
     <div className="priceCard ">
       <p className=" text-lg  text-black border-b-1 text-center">

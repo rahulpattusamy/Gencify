@@ -9,8 +9,8 @@ const CartDetailPage = () => {
   const cart = useProductstore((s) => s.productQuery.cart);
   const removeFromCart = useProductstore((s) => s.removeFromcart);
 
-  if (cart?.length === 0) return <Emptycart />;
-
+  if (!cart) return <Emptycart />;
+  if(cart.length == 0) return<Emptycart/>
   return (
     <>
     <p className="text-center text-xl mt-5">My Cart</p>
