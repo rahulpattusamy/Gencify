@@ -18,7 +18,9 @@ const NavBar = () => {
       <SearchInput />
       <div className="flex shrink-0 gap-8  text-3xl">
         <button className="cursor-pointer">
+          <Link to="/wishlist">
           <MdFavoriteBorder />
+          </Link>
         </button>
         <button className="cursor-pointer relative">
           <Link to="/cart">

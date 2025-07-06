@@ -49,7 +49,7 @@ const CartDetailPage = () => {
                 Remove
               </button>
               <button className="btn3 bg-red-500">
-                Move to <MdFavoriteBorder />
+                Move to <MdFavoriteBorder/>
               </button>
             </div>
           </div>

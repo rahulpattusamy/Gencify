@@ -21,7 +21,7 @@ const PriceDetails = () => {
         {cart?.length}
       </p>
       <p className="pricedetails">
-        Delivery Fee: <span>0</span>
+        Delivery Fee: <span className="text-green-500">Free</span>
       </p>
       <p className="pricedetails border-b-1 border-black">
         Platform Fee:<span>&#36;{platformfee}</span>

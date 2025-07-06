@@ -4,7 +4,7 @@ import useProducts from "../hooks/useProducts";
 import useProductstore from "../store";
 import { FindproductInCart } from "../utils/FindProductIncart";
 import { FaCheckCircle } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const ProductCard = () => {
   const productQuery = useProductstore((s) => s.productQuery.categoryid);
@@ -48,9 +48,12 @@ const ProductCard = () => {
                {isProductIncart? "Added to cart"  : "Add to Cart"}
                {isProductIncart?<FaCheckCircle/>:<LuShoppingCart /> }
               </button>
-              <button className="btn2">
+              <Link to="/wishlist">
+               <button className="btn2">
                 <MdFavoriteBorder/>
               </button>
+              </Link>
+             
             </div>
           </div>
         </div>
