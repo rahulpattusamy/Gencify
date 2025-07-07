@@ -5,7 +5,7 @@ import { FaCheckCircle } from "react-icons/fa";
 
 const WishList = () => {
   const wishlist = useProductstore((s) => s.productQuery.wishlist);
-  const removeProduct = useProductstore(s=>s.removeFromWishlist)
+  const removeProductInwishlist = useProductstore(s=>s.removeFromWishlist)
   const cart = useProductstore(s=>s.productQuery.cart)
   const addTocart = useProductstore(s=>s.setCart)
   return (
@@ -25,7 +25,7 @@ const WishList = () => {
               </button></p>
               <div className="border-b"></div>
             <div className="flex justify-between">
-              <button onClick={()=>{removeProduct(item.id)
+              <button onClick={()=>{removeProductInwishlist(item.id)
               }} type="button" className="btn3">
                 Remove
               </button>

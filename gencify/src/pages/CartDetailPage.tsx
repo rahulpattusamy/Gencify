@@ -6,15 +6,19 @@ import { MdFavoriteBorder } from "react-icons/md";
 import { FindProductInWishlist } from "../utils/FindProductInWishlist";
 import { FaCheckCircle } from "react-icons/fa";
 
+
 const CartDetailPage = () => {
   const cart = useProductstore((s) => s.productQuery.cart);
   const removeFromCart = useProductstore((s) => s.removeFromcart);
   const wishlist = useProductstore(s=>s.productQuery.wishlist)
   const Setwishlist = useProductstore((s) => s.setWishlist);
-  
+  const increasequnatity = useProductstore((s)=>s.increaseQuantity)
+  const decreasequantity = useProductstore(s=>s.decreaseQuantity)
 
   if (!cart) return <Emptycart />;
   if (cart.length == 0) return <Emptycart />;
+
+  
   return (
     <>
       <p className="text-center text-xl mt-5">My Cart</p>
@@ -35,14 +39,14 @@ const CartDetailPage = () => {
                 <h1 className=" w-60 text">{item.title}</h1>
                 <h2 className="mt-1">
                   <span className="text">Price: &#36;</span>
-                  <span className="text">{item.price}</span>
+                  <span className="text">{parseInt(item.price) * item.quantity}</span>
                 </h2>
                 <div className="mt-1">
                   <h3 className="h-5 text-center text flex">
                     Quantity:
                     <div className="flex w-20 justify-between ml-5">
-                      <button className="btn4">-</button> <p>1</p>
-                      <button className="btn4">+</button>
+                      <button className="btn4" onClick={()=>decreasequantity(item.id)}>-</button> <p className="text-black">{item.quantity}</p>
+                      <button className="btn4" onClick={()=>increasequnatity(item.id)}>+</button>
                     </div>
                   </h3>
                 </div>
