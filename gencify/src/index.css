@@ -19,11 +19,7 @@ body {
           w-45 min-h-[20rem]
          overflow-hidden;
   }
-  .card2{
-    @apply  bg-white text-black text-sm font-light
-          w-45 min-h-[16rem]
-          shadow-2xl rounded-sm overflow-hidden;
-  }
+
   .btn {
     @apply flex items-center gap-2 bg-red-400 border text-white text-xs  p-2 rounded hover:cursor-pointer transform-3d cursor-pointer transition transform active:scale-110;
   }

@@ -3,14 +3,16 @@ import { MdFavoriteBorder } from "react-icons/md";
 import useProducts from "../hooks/useProducts";
 import useProductstore from "../store";
 import { FindproductInCart } from "../utils/FindProductIncart";
+import { FindProductInWishlist } from "../utils/FindProductInWishlist";
 import { FaCheckCircle } from "react-icons/fa";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const ProductCard = () => {
   const productQuery = useProductstore((s) => s.productQuery.categoryid);
   const { data, error } = useProducts(productQuery);
   const setProductTocart = useProductstore((s) => s.setCart);
   const cart = useProductstore((s) => s.productQuery.cart);
+  const wishlist = useProductstore((s) => s.productQuery.wishlist);
   const navigate = useNavigate();
   const setProductToWishlist = useProductstore((s) => s.setWishlist);
 
@@ -25,6 +27,7 @@ const ProductCard = () => {
     <div className="grid sm:grid-cols-4 p-15 gap-y-10">
       {data?.map((product) => {
         const isProductIncart = FindproductInCart(cart, product.id);
+        const isProductInWishlist = FindProductInWishlist(wishlist, product.id);
         return (
           <div className="card" key={product.id}>
             <img
@@ -34,13 +37,18 @@ const ProductCard = () => {
             />
             <div className="pt-4 pl-1.5  h-30 flex flex-col gap-1.5">
               <p className="text">{product.title}</p>
-              <p className=" text text-sm font-bold flex justify-between items-center">&#36;{product.price} <button
-                    onClick={() => setProductToWishlist(product)}
-                    className="btn2 mr-2"
-                  >
-                    <MdFavoriteBorder />
-                  </button></p>
-                  <p className="border-b mr-1 fiixed"></p>
+              <p className=" text text-sm font-bold flex justify-between items-center">
+                &#36;{product.price}{" "}
+                <button
+                  onClick={() => {
+                    !isProductInWishlist && setProductToWishlist(product);
+                  }}
+                  className="btn2 mr-2"
+                >
+                  {isProductInWishlist? <FaCheckCircle /> :<MdFavoriteBorder />}
+                </button>
+              </p>
+              <p className="border-b mr-1 fiixed"></p>
               <div className="flex justify-between">
                 <button
                   type="button"
