@@ -76,7 +76,6 @@ const useProductstore = create<ProductQuerystore>((set) => ({
         wishlist: [...(state.productQuery.wishlist || []), product],
       },
     })),
-
     
   removeFromWishlist: (id) =>
     set((state) => {

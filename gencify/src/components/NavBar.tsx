@@ -4,10 +4,13 @@ import { FaRegUserCircle } from "react-icons/fa";
 import SearchInput from "./SearchInput";
 import { Link } from "react-router-dom";
 import useProductstore from "../store";
+import usecartLenght from "../hooks/usecartLenght";
 
 const NavBar = () => {
   const cart = useProductstore((s) => s.productQuery.cart);
   const wishlist = useProductstore(s=>s.productQuery.wishlist)
+    const cartlength = usecartLenght()
+
   return (
     <header className="flex shrink-0 items-center justify-between bg-red-400 p-3 text-white">
       <div>
@@ -32,7 +35,8 @@ const NavBar = () => {
           </Link>
         </button>
         <span className="text-sm bg-gray-700 w-5 text-center rounded-2xl ml-20 -mt-1  absolute">
-          {cart ? cart.length : "0"}
+          {cart ? cartlength
+ : "0"}
         </span>
 
         <button className="cursor-pointer">

@@ -1,3 +1,4 @@
+import usecartLenght from "../hooks/usecartLenght";
 import type { Products } from "../hooks/useProducts";
 import useProductstore from "../store";
 
@@ -7,6 +8,7 @@ const PriceDetails = () => {
     cart?.reduce((acc, result) => acc + parseInt(result.price), 0);
   const total = totalPrice(cart);
   const platformfee = 7;
+  const cartlength = usecartLenght()
   if(cart)
   return (
     <div className="priceCard ">
@@ -17,8 +19,8 @@ const PriceDetails = () => {
         Price:<span>&#36;{total}</span>
       </p>
       <p className="pricedetails">
-        Total Item: <span></span>
-        {cart?.length}
+        Total Item: <span>{cartlength}</span>
+        {}
       </p>
       <p className="pricedetails">
         Delivery Fee: <span className="text-green-500">Free</span>
