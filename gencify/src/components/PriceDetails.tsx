@@ -6,7 +6,7 @@ const PriceDetails = () => {
   const totalPrice = (cart?: Products[]) =>
     cart?.reduce((acc, result) => acc + parseInt(result.price), 0);
   const total = totalPrice(cart);
-  const platformfee = Math.floor (Math.random()*10)+10
+  const platformfee = 7;
   if(cart)
   return (
     <div className="priceCard ">
