@@ -1,19 +1,18 @@
 import usecartLenght from "../hooks/usecartLenght";
-import useProductstore from "../store";
-
+import useShoppingStore from "../ShoppingStore";
 const PriceDetails = () => {
-  const total = useProductstore((s) =>
-    s.productQuery.cart?.reduce(
+  const total = useShoppingStore((s) =>
+    s.shoppingstatus.cart?.reduce(
       (acc, result) => acc + parseInt(result.price) * result.quantity,
       0
     )
   );
   const platformfee = 7;
   const cartlength = usecartLenght();
-  const cart = useProductstore(s=>s.productQuery.cart)
+  const cart = useShoppingStore((s) => s.shoppingstatus.cart);
   if (cart)
     return (
-      <div className="priceCard ">
+      <div className="priceCard  ">
         <p className=" text-lg  text-black border-b-1 text-center">
           Price Details
         </p>

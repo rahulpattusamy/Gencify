@@ -1,7 +1,7 @@
-import useProductstore from "../store";
+import useShoppingStore from "../ShoppingStore";
 
 const usecartLenght = () => {
-  const cart = useProductstore((s) => s.productQuery.cart);
+  const cart = useShoppingStore((s) => s.shoppingstatus.cart);
   return cart?.reduce((sum, item) => sum + (item.quantity || 1), 0) || 0;
 };
 

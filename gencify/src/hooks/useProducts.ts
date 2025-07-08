@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import apiclient from "../service/api-client";
+import useProductstore from "../store";
 apiclient;
 
 export interface Products {
@@ -7,18 +8,22 @@ export interface Products {
   title: string;
   price: string;
   images: string;
+  
 }
 
-const useProducts = (id?: number) =>
-  useQuery({
-    queryKey: ["products", id],
+const useProducts = () =>{
+  const productQuery = useProductstore(s=>s.productQuery)
+  return useQuery({
+    queryKey: ["products", productQuery],
     queryFn: () =>
       apiclient
         .get<Products[]>("/products", {
-          params: { categoryId: id },
+          params: { categoryId:productQuery?.categoryid },
         })
         .then((res) => res.data),
     staleTime: 192 * 60 * 60 * 1000,
   });
+}
+  
 
 export default useProducts;

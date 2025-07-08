@@ -1,4 +1,5 @@
 import { useCategory } from "../hooks/useCategory";
+import useProducts from "../hooks/useProducts";
 import useProductstore from "../store";
 
 const category = () => {
